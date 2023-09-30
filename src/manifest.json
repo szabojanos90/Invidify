@@ -1,0 +1,48 @@
+{
+    "name": "Invidify",
+    "version": "0.0.5",
+    "manifest_version": 2,
+    "description": "Transforms links on YouTube pages to point to Invidify instance.",
+    "homepage_url": "https://www.github.com",
+    "icons": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "browser_action": {
+      "default_icon": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+      },
+      "default_title": "Invidify",
+      "default_popup": "index.html"
+    },
+    "content_scripts": [
+      {
+        "matches": [
+          "*://*.youtube.com/*",
+          "*://*.youtube.hu/*",
+          "*://*.youtube-nocookie.com/*",
+          "*://*.youtu.be/*"
+        ],
+        "js": [
+          "contentScript.bundle.js"
+        ],
+        "run_at": "document_start",
+        "all_frames": true
+      }
+    ],
+    "options_ui": {
+      "page": "index.html"
+    },
+    "permissions": [ "storage" ],
+    "browser_specific_settings": {
+      "gecko": {
+        "id": "addon@invidify.com",
+        "strict_min_version": "42.0"
+      }
+    }
+    
+  }
+  
